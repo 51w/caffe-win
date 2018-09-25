@@ -1,0 +1,29 @@
+git clone https://github.com/weiliu89/caffe.git
+
+
+
+caffe-win编译
+1. 拷贝include src
+
+2. 头文件路径  宏定义
+
+3. <io.cpp>
+ #if defined(_MSC_VER)
+ #include <io.h>
+ #endif
+
+4. 禁用4996
+
+5. <signal_handler.cpp>
+
+6. <common.cpp>
+ #if defined(_MSC_VER)
+ #include <process.h>
+ #define getpid() _getpid()
+ #endif
+
+7. <db_lmdb.cpp>
+ #if defined(_MSC_VER)
+ #include <direct.h>
+ #define mkdir(X, Y) _mkdir(X)
+ #endif
