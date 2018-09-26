@@ -333,7 +333,7 @@
     <ClCompile Include="src\caffe\syncedmem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="caffe.cpp">
+    <ClCompile Include="_caffe-ssd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

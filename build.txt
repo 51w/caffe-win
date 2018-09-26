@@ -1,8 +1,8 @@
 git clone https://github.com/weiliu89/caffe.git
 
 
-
-caffe-win编译
+************************************************
+caffe-win编译 (CPU_ONLY)
 1. 拷贝include src
 
 2. 头文件路径  宏定义
@@ -27,3 +27,30 @@ caffe-win编译
  #include <direct.h>
  #define mkdir(X, Y) _mkdir(X)
  #endif
+************************************************
+
+
+
+************************************************
+pycaffe编译
+
+python.lib  -->  python_d.lib
+
+
+异常问题
+Py_NegativeRefcount
+Py_Dealloc
+Py_RefTotal
+
+
+解决 C:\Python27\include\pyconfig.h
+#ifdef _DEBUG
+//#	define Py_DEBUG
+#endif
+
+
+异常
+proto   -->  python/caffe/proto/.. (编译生成)
+
+pip install scikit-image scipy numpy protobuf
+************************************************
