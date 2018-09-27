@@ -83,7 +83,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Python27\Lib\site-packages\numpy\core\include;C:\Python27\include;../../hdf5/include;../../leveldb/example/include;../../lmdb;../../openblas/include;../../opencv/include;../../protobuf/include;../../glog/include;../../gflags/include;../../boost/include;./src;./include;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Python27\Lib\site-packages\numpy\core\include;C:\Python27\include;../../hdf5/include;../../leveldb/include;../../lmdb;../../openblas/include;../../opencv/include;../../protobuf/include;../../glog/include;../../gflags/include;../../boost/include;./src;./include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Python27\libs;../../protobuf/lib;../../opencv/x64/vc14/lib;../../openblas/lib;../../lmdb;../../leveldb/;../../hdf5/lib;../../glog/lib;../../gflags/lib;../../boost;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -157,11 +157,13 @@
   <ItemGroup>
     <ClCompile Include="src\caffe\blob.cpp" />
     <ClCompile Include="src\caffe\common.cpp" />
+    <ClCompile Include="src\caffe\data_reader.cpp" />
     <ClCompile Include="src\caffe\data_transformer.cpp" />
     <ClCompile Include="src\caffe\internal_thread.cpp" />
     <ClCompile Include="src\caffe\layer.cpp" />
     <ClCompile Include="src\caffe\layers\absval_layer.cpp" />
     <ClCompile Include="src\caffe\layers\accuracy_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\annotated_data_layer.cpp" />
     <ClCompile Include="src\caffe\layers\argmax_layer.cpp" />
     <ClCompile Include="src\caffe\layers\base_conv_layer.cpp" />
     <ClCompile Include="src\caffe\layers\base_data_layer.cpp" />
@@ -183,6 +185,8 @@
     <ClCompile Include="src\caffe\layers\cudnn_tanh_layer.cpp" />
     <ClCompile Include="src\caffe\layers\data_layer.cpp" />
     <ClCompile Include="src\caffe\layers\deconv_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\detection_evaluate_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\detection_output_layer.cpp" />
     <ClCompile Include="src\caffe\layers\dropout_layer.cpp" />
     <ClCompile Include="src\caffe\layers\dummy_data_layer.cpp" />
     <ClCompile Include="src\caffe\layers\eltwise_layer.cpp" />
@@ -206,13 +210,17 @@
     <ClCompile Include="src\caffe\layers\lstm_layer.cpp" />
     <ClCompile Include="src\caffe\layers\lstm_unit_layer.cpp" />
     <ClCompile Include="src\caffe\layers\memory_data_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\multibox_loss_layer.cpp" />
     <ClCompile Include="src\caffe\layers\multinomial_logistic_loss_layer.cpp" />
     <ClCompile Include="src\caffe\layers\mvn_layer.cpp" />
     <ClCompile Include="src\caffe\layers\neuron_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\normalize_layer.cpp" />
     <ClCompile Include="src\caffe\layers\parameter_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\permute_layer.cpp" />
     <ClCompile Include="src\caffe\layers\pooling_layer.cpp" />
     <ClCompile Include="src\caffe\layers\power_layer.cpp" />
     <ClCompile Include="src\caffe\layers\prelu_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\prior_box_layer.cpp" />
     <ClCompile Include="src\caffe\layers\recurrent_layer.cpp" />
     <ClCompile Include="src\caffe\layers\reduction_layer.cpp" />
     <ClCompile Include="src\caffe\layers\relu_layer.cpp" />
@@ -223,6 +231,7 @@
     <ClCompile Include="src\caffe\layers\sigmoid_layer.cpp" />
     <ClCompile Include="src\caffe\layers\silence_layer.cpp" />
     <ClCompile Include="src\caffe\layers\slice_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\smooth_L1_loss_layer.cpp" />
     <ClCompile Include="src\caffe\layers\softmax_layer.cpp" />
     <ClCompile Include="src\caffe\layers\softmax_loss_layer.cpp" />
     <ClCompile Include="src\caffe\layers\split_layer.cpp" />
@@ -230,6 +239,7 @@
     <ClCompile Include="src\caffe\layers\tanh_layer.cpp" />
     <ClCompile Include="src\caffe\layers\threshold_layer.cpp" />
     <ClCompile Include="src\caffe\layers\tile_layer.cpp" />
+    <ClCompile Include="src\caffe\layers\video_data_layer.cpp" />
     <ClCompile Include="src\caffe\layers\window_data_layer.cpp" />
     <ClCompile Include="src\caffe\layer_factory.cpp" />
     <ClCompile Include="src\caffe\net.cpp" />
@@ -243,6 +253,7 @@
     <ClCompile Include="src\caffe\solvers\rmsprop_solver.cpp" />
     <ClCompile Include="src\caffe\solvers\sgd_solver.cpp" />
     <ClCompile Include="src\caffe\syncedmem.cpp" />
+    <ClCompile Include="src\caffe\util\bbox_util.cpp" />
     <ClCompile Include="src\caffe\util\benchmark.cpp" />
     <ClCompile Include="src\caffe\util\blocking_queue.cpp" />
     <ClCompile Include="src\caffe\util\cudnn.cpp" />
@@ -251,12 +262,14 @@
     <ClCompile Include="src\caffe\util\db_lmdb.cpp" />
     <ClCompile Include="src\caffe\util\hdf5.cpp" />
     <ClCompile Include="src\caffe\util\im2col.cpp" />
+    <ClCompile Include="src\caffe\util\im_transforms.cpp" />
     <ClCompile Include="src\caffe\util\insert_splits.cpp" />
     <ClCompile Include="src\caffe\util\io.cpp" />
     <ClCompile Include="src\caffe\util\math_functions.cpp" />
+    <ClCompile Include="src\caffe\util\sampler.cpp" />
     <ClCompile Include="src\caffe\util\signal_handler.cpp" />
     <ClCompile Include="src\caffe\util\upgrade_proto.cpp" />
-    <ClCompile Include="_caffe-ssd.cpp" />
+    <ClCompile Include="_caffe.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

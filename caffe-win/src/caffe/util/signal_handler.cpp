@@ -18,9 +18,9 @@ namespace {
 		got_sighup = true;
 		break;
 #else
-    case SIGHUP:
-      got_sighup = true;
-      break;
+	case SIGHUP:
+		got_sighup = true;
+		break;
 #endif
     case SIGINT:
       got_sigint = true;

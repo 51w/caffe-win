@@ -1,5 +1,6 @@
 git clone https://github.com/weiliu89/caffe.git
-
+cd caffe
+git checkout ssd
 
 ************************************************
 caffe-win±‡“Î (CPU_ONLY)

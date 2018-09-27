@@ -333,7 +333,46 @@
     <ClCompile Include="src\caffe\syncedmem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="_caffe-ssd.cpp">
+    <ClCompile Include="src\caffe\layers\annotated_data_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\detection_evaluate_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\detection_output_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\multibox_loss_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\normalize_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\permute_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\prior_box_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\smooth_L1_loss_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\layers\video_data_layer.cpp">
+      <Filter>源文件\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\util\bbox_util.cpp">
+      <Filter>源文件\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\util\im_transforms.cpp">
+      <Filter>源文件\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\util\sampler.cpp">
+      <Filter>源文件\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\caffe\data_reader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="_caffe.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
